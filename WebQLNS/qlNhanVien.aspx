@@ -2,7 +2,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:SqlDataSource ID="dsNhanVien" runat="server" ConnectionString="<%$ ConnectionStrings:QLNhanVienConnectionString2 %>" DeleteCommand="DELETE FROM [NhanVien] WHERE [MaNV] = @MaNV" InsertCommand="INSERT INTO [NhanVien] ([HoNV], [TenNV], [Phai], [NgaySinh], [NoiSinh], [MaPhong]) VALUES (@HoNV, @TenNV, @Phai, @NgaySinh, @NoiSinh, @MaPhong)" SelectCommand="SELECT * FROM [NhanVien]" UpdateCommand="UPDATE [NhanVien] SET [HoNV] = @HoNV, [TenNV] = @TenNV, [Phai] = @Phai, [NgaySinh] = @NgaySinh, [NoiSinh] = @NoiSinh, [MaPhong] = @MaPhong WHERE [MaNV] = @MaNV">
+
+    <h2 class="text-center">DANH SÁCH NHÂN VIÊN</h2>
+    <hr />
+    <div >
+    <a href="ThemNhanVien.aspx" class="btn btn-secondary">Thêm Nhân Viên</a>
+</div>
+    <asp:SqlDataSource ID="dsNhanVien" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:QLNhanVienConnectionString2 %>" 
+        DeleteCommand="DELETE FROM [NhanVien] WHERE [MaNV] = @MaNV" 
+        InsertCommand="INSERT INTO [NhanVien] ([HoNV], [TenNV], [Phai], [NgaySinh], [NoiSinh], [MaPhong]) VALUES (@HoNV, @TenNV, @Phai, @NgaySinh, @NoiSinh, @MaPhong)" 
+        SelectCommand="SELECT * FROM [NhanVien]" 
+        UpdateCommand="UPDATE [NhanVien] SET [HoNV] = @HoNV, [TenNV] = @TenNV, [Phai] = @Phai, [NgaySinh] = @NgaySinh, [NoiSinh] = @NoiSinh, [MaPhong] = @MaPhong WHERE [MaNV] = @MaNV">
         <DeleteParameters>
             <asp:Parameter Name="MaNV" Type="Int32" />
         </DeleteParameters>
@@ -24,8 +35,9 @@
             <asp:Parameter Name="MaNV" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
+    
     <asp:GridView ID="gvNhanVien" runat="server"
-        DataSourceID="dsNhanVien" AutoGenerateColumns="False" DataKeyNames="MaNV" CssClass="table table-hover" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" >
+        DataSourceID="dsNhanVien" AutoGenerateColumns="False" DataKeyNames="MaNV" CssClass="table table-bordered table-hover" PageSize="5" >
         <Columns>
             <asp:BoundField DataField="MaNV" HeaderText="Mã Nhân Viên" InsertVisible="False" ReadOnly="True"/>
             <asp:BoundField DataField="HoNV" HeaderText="Họ Nhân Viên"  />
@@ -36,6 +48,7 @@
             <asp:BoundField DataField="MaPhong" HeaderText="Mã Phòng" />
             <asp:CommandField ShowEditButton="true" ButtonType="Button" ShowDeleteButton="true" />
         </Columns>
+        <HeaderStyle CssClass="bg-info" />
         <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
         <HeaderStyle CssClass="bg-info" BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC"/>
         <PagerStyle BackColor="#FFFFCC" ForeColor="#330099" HorizontalAlign="Center" />
@@ -46,4 +59,5 @@
         <SortedDescendingCellStyle BackColor="#F6F0C0" />
         <SortedDescendingHeaderStyle BackColor="#7E0000" />
     </asp:GridView>
+    
 </asp:Content>
