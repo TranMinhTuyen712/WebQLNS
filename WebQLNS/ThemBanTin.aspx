@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="Scripts/ckeditor/ckeditor.js"></script>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">   
 
     <div class="text-center">
 <h2>Thêm mới Bản Tin</h2>
@@ -17,13 +17,13 @@
 <div class="row mb-2">
     <div class="col-md-4">Tóm tắt</div>
     <div class="col-md-7">
-        <asp:TextBox ID="txtTomtat" runat="server" TextMode="MultiLine" CssClass="ckeditor" Rows="30"></asp:TextBox>
+        <asp:TextBox ID="txtTomtat" runat="server" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
     </div>
 </div>
  <div class="row mb-2">
     <div class="col-md-4">Nội dung</div>
     <div class="col-md-7">
-       <asp:TextBox ID="txtNoidung" runat="server" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
+       <asp:TextBox ID="txtNoidung" runat="server" TextMode="MultiLine" CssClass="ckeditor" Rows="30"></asp:TextBox>
     </div>
 </div>
 <div class="row mb-2">

@@ -3,9 +3,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <div class="text-center">
+        <a href="ThemBanTin.aspx" class="btn btn-outline-primary">Thêm bản tin</a>
+    </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server"
-        ConnectionString="<%$ ConnectionStrings:QLNhanVienConnectionString4 %>"
-        SelectCommand="SELECT [TieuDe], [TomTat], [Hinh], [TheLoaiID] FROM [BanTin] WHERE (([TieuDe] = @TieuDe) AND ([TomTat] = @TomTat) AND ([Hinh] = @Hinh) AND ([TheLoaiID] = @TheLoaiID))">
+        ConnectionString="<%$ ConnectionStrings:QLNhanVienConnectionString %>"
+        SelectCommand="SELECT * FROM [BanTin]" DeleteCommand="DELETE FROM [BanTin] WHERE [Id] = @Id" InsertCommand="INSERT INTO [BanTin] ([TieuDe], [TomTat], [NoiDung], [Hinh], [NgayDang], [TrangThai], [TheLoaiID]) VALUES (@TieuDe, @TomTat, @NoiDung, @Hinh, @NgayDang, @TrangThai, @TheLoaiID)" UpdateCommand="UPDATE [BanTin] SET [TieuDe] = @TieuDe, [TomTat] = @TomTat, [NoiDung] = @NoiDung, [Hinh] = @Hinh, [NgayDang] = @NgayDang, [TrangThai] = @TrangThai, [TheLoaiID] = @TheLoaiID WHERE [Id] = @Id">
         <DeleteParameters>
             <asp:Parameter Name="Id" Type="Int32"></asp:Parameter>
         </DeleteParameters>
